@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: technical-sales-web-app
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false # Add this manually in Render dashboard
+      - key: GOOGLE_MAP_API
+        sync: false # Add this manually in Render dashboard
+      - key: GOOGLE_GEOCODING_API
+        sync: false # Add this manually in Render dashboard
+    healthCheckPath: /api/health 
